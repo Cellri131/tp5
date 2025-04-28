@@ -1,0 +1,101 @@
+.nav {
+    background-color: #1e1e1e;
+    color: #ddd;
+    padding: 1em 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid #00ccff; /* Démarcation nette avec le content */
+}
+
+.navSiteIcon img {
+    height: 40px; /* Ajustez la taille du logo selon vos besoins */
+}
+
+/* Liste de navigation principale */
+.navListe {
+    list-style-type: none;
+    display: flex;
+    gap: 2em;
+}
+
+.navItem {
+    position: relative; /* Nécessaire pour positionner le sous-menu */
+}
+
+.navItem > a,
+.navItem > span {
+    color: #ddd;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.8em 1em;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.navItem > a:hover,
+.navItem > span:hover {
+    color: #00ccff; /* Bleu clair au survol */
+}
+
+/* Sous-menu (subnav) */
+.subnavList {
+    list-style-type: none;
+    position: absolute;
+    top: 100%; /* Positionne le sous-menu juste en dessous de l'item */
+    left: 0;
+    background-color: #1e1e1e;
+    padding: 0.5em 0;
+    display: none; /* Masqué par défaut */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+    z-index: 10;
+}
+
+.subnavList li a {
+    color: #ddd;
+    text-decoration: none;
+    padding: 0.8em 1em;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.subnavList li a:hover {
+    color: #00ccff;
+}
+
+/* Affichage du sous-menu au survol */
+.navItem:hover .subnavList {
+    display: block; /* Affiche le sous-menu au survol */
+}
+
+/* Styles pour le sous-menu mobile (ajustement de l'affichage au clic) */
+.navItem:focus-within .subnavList {
+    display: block; /* Affiche le sous-menu au clic sur l'item */
+}
+
+/* Responsive design pour mobile */
+@media (max-width: 768px) {
+    .nav {
+        padding: 1em;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navListe {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5em;
+    }
+
+    .navItem {
+        width: 100%;
+    }
+
+    .subnavList {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+    }
+}
